@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória - Números</title>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        #game-container {
+            text-align: center;
+        }
+
+        #number-display {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #input-container {
+            display: none;
+        }
+
+        #parameters-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #parameters-container .form-group {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div id="game-container" class="container">
+            <div id="parameters-container">
+                <div class="form-group">
+                    <label for="response-time">Tempo de Resposta:</label>
+                    <select id="response-time" class="form-control">
+                        <option value="2">Rápido</option>
+                        <option value="1.5">Normal</option>
+                        <option value="1">Devagar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sequence-length">Tamanho da Sequência:</label>
+                    <input type="number" id="sequence-length" class="form-control" min="1" value="4">
+                </div>
+            </div>
+            <button id="start-button" class="btn btn-primary mb-3">Iniciar</button>
+            <div id="number-display" class="mb-3"></div>
+            <div id="input-container" class="input-group mb-3">
+                <input type="text" id="user-input" class="form-control" maxlength="8" />
+                <button id="submit-button" class="btn btn-success">Enviar</button>
+            </div>
+            <div id="progress" class="alert alert-info" role="alert"></div>
+            <div id="result" class="alert alert-success" role="alert"></div>
+        </div>
+        <script src="/main.js"></script>
+        <script src="/js/numeros.js"></script>
+</body>
+
+</html>

@@ -22,7 +22,7 @@
         }
 
         #number-display {
-            font-size: 2em;
+            font-size: 3rem;
             margin-bottom: 20px;
         }
 
@@ -39,6 +39,11 @@
         #parameters-container .form-group {
             margin-right: 10px;
         }
+
+        #user-input{
+            font-size: 2rem;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -49,13 +54,15 @@
                 <div class="form-group">
                     <label for="response-time">Tempo de Resposta:</label>
                     <select id="response-time" class="form-control">
-                        <option value="2">Rápido</option>
+                        <option value="4">Ultra Rápido</option>
+                        <option value="3">Super Rápido</option>
+                        <option value="2" selected>Rápido</option>
                         <option value="1.5">Normal</option>
                         <option value="1">Devagar</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="sequence-length">Tamanho da Sequência:</label>
+                    <label for="sequence-length">Tamanho dos Numeros:</label>
                     <input type="number" id="sequence-length" class="form-control" min="1" value="4">
                 </div>
             </div>

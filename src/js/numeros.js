@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showSequence(sequence) {
-        progressDiv.innerHTML = `Total ${sequenceIndex + 1} de ${totalSequences} <br>`;
+        progressDiv.innerHTML = `Total ${sequenceIndex} de ${totalSequences} <br>`;
         numberDisplay.textContent = sequence;        
         tempoCorrendo = true;  
 

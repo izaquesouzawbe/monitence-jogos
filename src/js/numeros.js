@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let digitLength;
     let displayTimeout;
     let tempoCorrendo;
+    let responseTime;
 
     function startGame() {
         startButton.style.display = 'none';
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startTime = new Date();
         progressDiv.textContent = '';
         sequenceIndex = 0;
+        responseTime = parseFloat(responseTimeSelect.value);
         digitLength = parseInt(sequenceLengthInput.value, 10);
         sequences.length = 0; // Limpa sequências anteriores
         nextSequence();
@@ -47,8 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         progressDiv.innerHTML = `Total ${sequenceIndex} de ${totalSequences} <br>`;
         numberDisplay.textContent = sequence;        
         tempoCorrendo = true;  
-
-        const responseTime = parseFloat(responseTimeSelect.value);
+        
         displayTimeout = setTimeout(() => {
             numberDisplay.textContent = '';
             inputContainer.style.display = 'flex';
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 userInput.disabled = false;
                 showSequence(sequences[sequenceIndex]);
-            }, 1000);
+            }, 1000 / responseTime);
         }
     }    
 

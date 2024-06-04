@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sequenceIndex = 0;
         responseTime = parseFloat(responseTimeSelect.value);
         digitLength = parseInt(sequenceLengthInput.value, 10);
-        sequences.length = 0; // Limpa sequências anteriores
+        sequences.length = 0;
         nextSequence();
     }
 
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultDiv.textContent = `Parabéns! Você completou o jogo em ${timeTaken} segundos.`;
         startButton.style.display = 'block';
         parametersContainer.style.display = 'flex';
+        inputContainer.style.display = 'none';
     }
 
     function generateSequence() {
@@ -46,17 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showSequence(sequence) {
-        progressDiv.innerHTML = `Total ${sequenceIndex} de ${totalSequences} <br>`;
-        numberDisplay.textContent = sequence;        
-        tempoCorrendo = true;  
-        
+        progressDiv.innerHTML = `Total ${sequenceIndex + 1} de ${totalSequences} <br>`;
+        numberDisplay.textContent = sequence;
+        tempoCorrendo = true;
+
         displayTimeout = setTimeout(() => {
             numberDisplay.textContent = '';
             inputContainer.style.display = 'flex';
             userInput.focus();
             tempoCorrendo = false;
         }, (digitLength * 1000) / responseTime);
-    }    
+    }
 
     function nextSequence() {
         if (sequenceIndex >= totalSequences) {
@@ -69,23 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const sequence = generateSequence();
         sequences.push(sequence);
         showSequence(sequence);
-    }    
+    }
 
-    function checkInput() {        
+    function checkInput() {
         const userValue = userInput.value;
-        if (userValue === sequences[sequenceIndex]) {            
+        if (userValue === sequences[sequenceIndex]) {
             sequenceIndex++;
             nextSequence();
-        } else {            
+        } else {
             userInput.value = '';
-            userInput.disabled = true;            
+            userInput.disabled = true;
             inputContainer.style.display = 'none';
             setTimeout(() => {
                 userInput.disabled = false;
                 showSequence(sequences[sequenceIndex]);
             }, 1000 / responseTime);
         }
-    }    
+    }
 
     startButton.addEventListener('click', startGame);
     submitButton.addEventListener('click', checkInput);
